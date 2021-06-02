@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Creamos el container de MySQL 
-docker run -d --name poligran-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=poligran mysql:latest
+docker run -d --name poligran-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=poligran2021 mysql:latest
 
 
 # Creamos el container de phpMyAdmin
@@ -10,7 +10,7 @@ docker run -d --name poligran-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=poligran
 # le pasamos el nombre porque así lo va a ver dentro de la red
 docker run -d \
     --name poligran-phpmyadmin \
-    --link=poligran-mysql \
+    --link=poligran-mysql:db \
     -p 8080:80 \
     phpmyadmin/phpmyadmin:latest
 
