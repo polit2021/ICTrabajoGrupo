@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
-#Este script se debe ejecutar como ROOT
 
-
+#Primero creamos una red por la que se van a comunicar ambos contenedores
 docker network create poligran
-
-
  
-# Creamos el container de MySQL 
+# Creamos el contenedor de MySQL 
 docker run -d \
     --name poligran-mysql \
     --network poligran \
@@ -16,7 +13,7 @@ docker run -d \
     mysql:latest
 
 
-# Creamos el container de phpMyAdmin
+# Creamos el contenedor de phpMyAdmin
 # 
 # PMA_HOST es el dominio de la instancia de MySQL a la que se va a conectar
 # según https://hub.docker.com/r/phpmyadmin/phpmyadmin/
@@ -27,4 +24,3 @@ docker run -d \
     -e PMA_HOST=poligran-mysql \
     -p 8080:80 \
     phpmyadmin/phpmyadmin:latest
-
