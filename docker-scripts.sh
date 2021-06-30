@@ -15,3 +15,4 @@ docker run -d \
     -p 8080:80 \
     phpmyadmin/phpmyadmin:latest
 
+echo "Docker para phpMyAdmin y MySQL ejecutados con éxito"
