@@ -4,4 +4,4 @@ services:
   - docker
 
 script:
-- chmod u+x docker-scripts.sh
+- chmod u+x docker-scripts.sh && ./docker-scripts.sh
